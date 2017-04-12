@@ -1,16 +1,18 @@
 {
-  "name": "SkelEktron",
-  "description": "Unofficial Electron Template Application",
-  "version": "0.0.6",
+  "name": "EasterProject",
+  "productName": "EasterProject",
+  "description": "A EasterProject by jsundwall and Pandito",
+  "version": "0.0.1",
+  "homepage": "https://github.com/jsundwall/easterproject",
   "author": {
-    "name": "Vito Tardia / BZ Coding",
-    "email": "vito@bzcoding.com",
-    "url": "https://bzcoding.com/"
+    "name": "Developers @ Discord",
+    "email": "",
+    "url": "https://discord.gg/36wga"
   },
-  "license": "MIT",
+  "license": "GNU",
   "repository": {
     "type": "git",
-    "url": "https://github.com/BZCoding/SkelEktron.git"
+    "url": "https://github.com/jsundwall/easterproject"
   },
   "main": "main.js",
   "scripts": {
@@ -59,8 +61,8 @@
     "boilerplate"
   ],
   "build": {
-    "appId": "com.bzcoding.skelektron",
-    "productName": "SkelEktron",
+    "appId": "",
+    "productName": "EasterProject",
     "dmg": {
       "iconSize": 120,
       "iconTextSize": 14,

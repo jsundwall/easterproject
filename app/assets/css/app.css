@@ -1,24 +1,250 @@
-/* Add styles for your app here */
-
-/* Use UI System fonts and colors,
-   see: https://www.sitepoint.com/css-system-styles/ */
-body {
-    font: caption;
-    color: WindowText;
-    background-color: Window;
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+html, body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: Segoe UI, Helvetica, Verdana, sans-serif;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  color:#8a8a8a;
+  cursor: default !important;
+}
+.is-darwin body,
+.is-mac body {
+  padding-top: 27px;
+}
+.is-darwin .title-bar,
+.is-mac .title-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 22px;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-app-region: drag;
+  app-region: drag;
+}
+main-area {
+  position: relative;
+  display: flex;
+  background: white;
+  margin: 0 auto;
+  width: 90%;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+drop-zone {
+  position: relative;
+  border-radius: 25px;
+  border: dashed 3px #cccccc;
+  height: 150px;
+  width: 170px;
+  display: block;
+  background-color: #eeeeee;
+  background-image: url('assets/img/Lock-Light.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 40px;
+  text-align: center;
+  font-size: .6em;
+  transition: all 0.2s;
+  cursor: pointer !important;
+}
+drop-zone:not(:first-child) {
+  margin-left: auto;
+}
+drop-zone:hover, .dragging{
+  border: dashed 3px #848484;
+  background-image: url('assets/img/Lock-Dark.png');
+  color: #848484;
+}
+drop-zone#unlock-zone {
+  background-image: url('assets/img/UnLock-Light.png');
+}
+drop-zone#unlock-zone:hover, drop-zone#unlock-zone.dragging {
+  background-image: url('assets/img/UnLock-Dark.png');
+}
+prompt-box {
+  position: absolute;
+  display: none;
+  align-items: center;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+prompt-box form {
+  display: block;
+/*  position: fixed;*/
+  width: 70%;
+  background: white;
+  z-index: 5;
+/*
+  box-shadow: 0px 1px 1px 1px #888888;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+*/
+  margin: auto;
+  padding: 0.5em;
+  border-radius: 3px;
+  overflow-y: auto;
+/*  max-height: 125px;*/
+}
+prompt-box#unlock-prompt form {
+/*  max-height: 90px;*/
+}
+.mb05em {
+  margin-bottom: 0.5em;
+}
+prompt-box input {
+  width: 100%;
+}
+prompt-box input[type="text"],
+prompt-box input[type="password"] {
+  padding: 0.5em;
+}
+.input-col {
+  display: flex;
+}
+.input-col input {
+  width: 47.5%;
+}
+.input-col input:last-child {
+  margin-left: auto;
+}
+prompt-box span {
+  word-wrap: break-word;
+}
+prompt-box button {
+  margin: 5px;
+  background-color: #3c96f3;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 6px 9px;
+  float: right;
+  border-radius: 2px;
+  cursor: pointer;
+}
+prompt-box button#password-button-cancel {
+  background-color: #de5864;
+}
+prompt-box button:hover {
+  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
+}
+prompt-box #error-message {
+  width: 100%;
+  clear: both;
+  float: right;
+  color: #ff1c1c;
+}
+.progress-bar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 10px;
+  background: #d4d4d4;
+  display: none;
 }
 
-/* Hide printers box by default */
-.printer-list {
-    display: none;
+.progress-bar span {
+  width: 100%;
+  height: 20px;
+  display: block;
 }
 
-/* Activate printers box, dynamically added by printers.js */
-.printer-list-active {
-    display: initial;
+.blue span {
+  background-color: #3c96f3;
 }
 
-/* Make UI Text not selectable */
-.ui-text {
-    -webkit-user-select: none;
+.gray span {
+  background-color: gray;
+}
+
+.stripes span {
+  background-size: 30px 30px;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, .15) 25%, transparent 25%,
+                      transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
+                      transparent 75%, transparent);
+
+  animation: animate-stripes 3s linear infinite;
+}
+.switch {
+  position: relative;
+  right: 0;
+  left: 0;
+  top: -5px;
+  width: 30px;
+  margin: 0 auto;
+}
+.switch span {
+  position: absolute;
+  left: -30px;
+  width: 100px;
+  font-size: .7em;
+}
+.cmn-toggle {
+  position: absolute;
+  margin-left: -9999px;
+  visibility: hidden;
+}
+.cmn-toggle + label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+}
+
+input.cmn-toggle-round + label {
+  padding: 2px;
+  width: 30px;
+  height: 15px;
+  background-color: #dddddd;
+  border-radius: 15px;
+}
+input.cmn-toggle-round + label:before,
+input.cmn-toggle-round + label:after {
+  display: block;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  bottom: 1px;
+  content: "";
+}
+input.cmn-toggle-round + label:before {
+  right: 1px;
+  background-color: #f1f1f1;
+  border-radius: 15px;
+  transition: background 0.4s;
+}
+input.cmn-toggle-round + label:after {
+  width: 15px;
+  height: 15px;
+  margin-top: -1px;
+  margin-left: -1px;
+  background-color: #fff;
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: margin 0.4s;
+}
+input.cmn-toggle-round:checked + label:before {
+  background-color: #3c96f3;
+}
+input.cmn-toggle-round:checked + label:after {
+  margin-left: 15px;
+}
+
+
+@keyframes animate-stripes {
+    0% {background-position: 0 0;} 100% {background-position: 60px 0;}
 }

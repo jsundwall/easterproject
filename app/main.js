@@ -11,7 +11,7 @@ const _ = require('lodash')
 const windowStateKeeper = require('electron-window-state')
 
 // Use system log facility, should work on Windows too
-require('./lib/log')(pjson.productName || 'SkelEktron')
+require('./lib/log')(pjson.productName || 'EasterProject')
 
 // Manage unhandled exceptions as early as possible
 process.on('uncaughtException', (e) => {
@@ -51,7 +51,7 @@ let mainWindow
 // Other windows we may need
 let infoWindow = null
 
-app.setName(pjson.productName || 'SkelEktron')
+app.setName(pjson.productName || 'EasterProject')
 
 function initialize () {
   var shouldQuit = makeSingleInstance()

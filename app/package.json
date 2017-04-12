@@ -1,13 +1,13 @@
 {
-  "name": "SkelEktron",
-  "productName": "SkelEktron",
-  "description": "Electron Template Desktop Application",
-  "version": "0.0.6",
-  "homepage": "https://github.com/BZCoding/SkelEktron",
+  "name": "EasterProject",
+  "productName": "EasterProject",
+  "description": "A EasterProject by jsundwall and Pandito",
+  "version": "0.0.1",
+  "homepage": "https://github.com/jsundwall/easterproject",
   "author": {
-    "name": "BZ Coding",
-    "email": "hello@bzcoding.com",
-    "url": "https://bzcoding.com/"
+    "name": "Developers @ Discord",
+    "email": "",
+    "url": "https://discord.gg/36wga"
   },
   "license": "MIT",
   "main": "main.js",

@@ -8,7 +8,7 @@ const path = require('path')
 chai.should()
 chai.use(chaiAsPromised)
 
-describe('(integration) skelektron', function () {
+describe('(integration) EasterProject', function () {
   this.timeout(30000)
 
   let app
